@@ -56,7 +56,7 @@ export class ProductListComponent implements OnInit {
     this.productService.searchProducts(keyword);
   }
 
-  get products() {
+  get products$() {
     return (this.product$ = this.productService.getProducts());
   }
 }

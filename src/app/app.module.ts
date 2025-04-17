@@ -10,16 +10,10 @@ import { ProductService } from './services/product.service';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 import { FormsModule } from '@angular/forms';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 
-const route: Routes = [
-  {path: 'search/:keyword', component: ProductListComponent},
-  {path:'category/:id', component: ProductListComponent},
-  {path:'category',component: ProductListComponent},
-  {path:'products',component: ProductListComponent},
-  {path:'', redirectTo:'/products',pathMatch: 'full'},
-  {path:'**',redirectTo:'/products',pathMatch: 'full'}
-]
+
 
 @NgModule({
   declarations: [
@@ -27,14 +21,19 @@ const route: Routes = [
     ProductListComponent,
     NavbarComponent,
     ProductCategoryMenuComponent,
+    ProductDetailsComponent,
   ],
   imports: [
-    RouterModule.forRoot(route),
+    // RouterModule.forRoot(route),
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [provideHttpClient(), ProductService],
+  providers: [ProductService,
+    provideHttpClient(
+      
+    )
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

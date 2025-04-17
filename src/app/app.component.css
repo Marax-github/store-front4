@@ -1,0 +1,13 @@
+.product-image {
+    object-fit: contain;
+    max-height: 250px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  @media (min-width: 1200px) {
+    .product-image {
+      max-height: 300px;
+    }
+  }
+  

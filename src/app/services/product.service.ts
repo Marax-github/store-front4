@@ -9,7 +9,6 @@ import { ProductCategory } from '../common/product-category';
 })
 export class ProductService {
   
-
   public baseUrl = 'http://localhost:8080/api/products'
   private categoryUrl = 'http://localhost:8080/api/product-category';
 
@@ -36,6 +35,10 @@ export class ProductService {
   searchProducts(keyword: string): void {
     const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${keyword}`;
     this.fetchProducts(searchUrl);
+  }
+  getProductsDetails(theProductId: number) {
+   const productDetailURL = `${this.baseUrl}/${theProductId}`;
+   return this.httpClient.get<Product>(productDetailURL);
   }
 
   private fetchProducts(searchUrl: string): void {
